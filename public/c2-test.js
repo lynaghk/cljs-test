@@ -28995,10 +28995,25 @@ goog.require("c2.core");
 goog.require("c2.scale");
 goog.require("c2.core");
 c2_test._BANG_my_data = cljs.core.atom.call(null, cljs.core.PersistentArrayMap.fromArray(["A", 1, "B", 2, "C", 4, "D", 3], true));
-c2_test.bind_BANG_.call(null, "#barchart", cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div#barchart", "div#barchart", 3329367759), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "h2", "h2", 1013907516), "Rad barchart!"], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.bars", "div.bars", 1323622767), c2.core.unify.call(null, c2_test._BANG_my_data, function(p__4688) {
-  var vec__4689 = p__4688;
-  var label = cljs.core.nth.call(null, vec__4689, 0, null);
-  var val = cljs.core.nth.call(null, vec__4689, 1, null);
-  return cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.bar", "div.bar", 2686463144), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.bar-fill", "div.bar-fill", 577315628), cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null, "style", "style", 1123684643), cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null, "width", "width", 1127031096), c2_test.x_scale.call(null, val)], true)], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, 
-  "span.label", "span.label", 1127954114), label], true)], true)
-})], true)], true));
+c2_test.x_scale = c2.scale.linear.call(null, new cljs.core.Keyword(null, "domain", "domain", 3982673974), cljs.core.PersistentVector.fromArray([0, 4], true), new cljs.core.Keyword(null, "range", "range", 1122184367), cljs.core.PersistentVector.fromArray([0, 100], true));
+c2_test.x_scale_percent = function x_scale_percent(p1__6308_SHARP_) {
+  return[cljs.core.str(c2_test.x_scale.call(null, p1__6308_SHARP_)), cljs.core.str("%")].join("")
+};
+var co__4089__auto___6311 = function() {
+  var co__4034__auto__ = new reflex.core.ComputedObservable(null, true, function() {
+    return cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div#barchart", "div#barchart", 3329367759), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "h2", "h2", 1013907516), "Rad barchart!"], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "table", "table", 1124020032), c2.core.unify.call(null, cljs.core.deref.call(null, c2_test._BANG_my_data), function(p__6309) {
+      var vec__6310 = p__6309;
+      var label = cljs.core.nth.call(null, vec__6310, 0, null);
+      var val = cljs.core.nth.call(null, vec__6310, 1, null);
+      return cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "tr", "tr", 1013907952), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "td", "td", 1013907938), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "span.label", "span.label", 1127954114), label], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "td.bar", "td.bar", 4428705543), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.bar-fill", 
+      "div.bar-fill", 577315628), cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null, "style", "style", 1123684643), cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null, "width", "width", 1127031096), c2_test.x_scale_percent.call(null, val)], true)], true)], true)], true)], true)
+    })], true)], true)
+  }, cljs.core.gensym.call(null, "computed-observable"), cljs.core.PersistentArrayMap.EMPTY, cljs.core.PersistentArrayMap.EMPTY);
+  cljs.core.deref.call(null, co__4034__auto__);
+  return co__4034__auto__
+}();
+var $el__4090__auto___6312 = c2.dom.__GT_dom.call(null, "#barchart");
+singult.core.merge_BANG_.call(null, $el__4090__auto___6312, cljs.core.deref.call(null, co__4089__auto___6311));
+cljs.core.add_watch.call(null, co__4089__auto___6311, new cljs.core.Keyword(null, "update-dom", "update-dom", 716806576), function() {
+  return singult.core.merge_BANG_.call(null, $el__4090__auto___6312, cljs.core.deref.call(null, co__4089__auto___6311))
+});
